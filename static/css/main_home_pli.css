@@ -1,0 +1,163 @@
+/* main_home_pli.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #212121; 
+    color: #FAFAFA; 
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* 스크롤 제거 */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #212121;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 30px;
+    font-weight: bold;
+    color: #FAFAFA;
+}
+
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    background-color: #212121;
+    height: calc(100% - 60px);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    color: #FAFAFA;
+    padding: 10px 20px;
+    width: 100%;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, width 0.3s;
+}
+
+.sidebar-item:hover {
+    background-color: #333;
+    width: 158px;
+}
+
+.sidebar-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.sidebar-text {
+    font-size: 16px;
+}
+
+.content {
+    flex: 1;
+    padding: 40px;
+    margin-top: 60px;
+    margin-left: 180px; /* reduced margin-left to shift content left */
+    width: calc(100% - 180px);
+    height: calc(100vh - 60px);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.content p {
+    font-size: 27px;
+    margin-bottom: 20px;
+    color: #b3b3b3;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 5px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.grid-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    margin: 20px auto;
+}
+
+.grid-group-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FAFAFA;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.feedback-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.feedback {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FAFAFA;
+}
+
+.list-navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #FAFAFA;
+    color: #212121;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #575757;
+}
