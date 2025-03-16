@@ -69,13 +69,14 @@ cd SOULSYNC
 ```
 
 ### 3.2 가상환경 설정
-## 맥/리눅스
 ```bash
+# 맥/리눅스
 python3 -m venv venv
 source venv/bin/activate
 ```
-## 윈도우
+
 ```bash
+# 윈도우
 python -m venv venv
 venv\Scripts\activate
 ```
@@ -86,7 +87,6 @@ pip install -r requirements.txt
 ```
 
 ### 3.4 서버 실행
-실행
 ```bash
 uvicorn main:app --reload
 ```
