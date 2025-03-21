@@ -1,4 +1,4 @@
-/* home.css */
+/* 전체 레이아웃 설정 */
 body {
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    overflow: hidden; /* 스크롤 제거 */
+    overflow: hidden; 
 }
 
 .header {
@@ -45,6 +45,7 @@ body {
     color: #FAFAFA; 
 }
 
+/* 네비게이션 */
 .nav-links {
     display: flex;
     gap: 20px; 
@@ -52,41 +53,48 @@ body {
 }
 
 .nav-button {
-    font-size: 16px;
-    color: white;
-    text-decoration: none;
+    background-color: #212121;
+    color: white; 
     padding: 5px 10px; 
+    border-radius: 5px; 
+    cursor: pointer;
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px;
     border: 1px solid white; 
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 .nav-button:hover {
     background-color: white; 
     color: black; 
+    border: 1px solid #cacaca; 
 }
 
-.container {
+/* 메인 콘텐츠 */
+.container, .content {
     width: 80%;
     max-width: 1200px;
-    margin-top: 120px;  /* reduced margin-top so header and content align without extra scroll */
+    margin-top: 120px;  /* 헤더 아래 여백 */
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 1;
 }
 
+/* 기분 선택 박스 */
 .box-container {
     display: flex; 
     justify-content: center; 
-    gap: 50px;  /* reduced gap */
-    margin: 50px 0;  /* reduced vertical margins */
+    gap: 50px;
+    margin: 50px 0;
 }
 
 .box {
     text-align: center;
     text-decoration: none; 
     color: #212121; 
+    transition: transform 0.3s ease;
 }
 
 .box:hover {
@@ -107,29 +115,33 @@ body {
     color: #D9D9D9; 
 }
 
+/* 푸터 스타일 */
 .footer {
-    text-align: center; 
+    text-align: left;
     width: 80%;
     max-width: 1200px;
-    margin-top: auto;  /* push footer to bottom */
+    margin-top: 0;
     padding: 20px 0;
+    margin-left: 100px;
+    position: relative;
+    top: -250px;  /* 원하는 만큼 음수로 위로 올리기 */
 }
 
 .footer h1 {
     font-size: 36px; 
-    margin: 0;
+    margin: 0 0 10px 0;
 }
 
 .footer p {
     font-size: 27px; 
-    margin: 10px 0;
+    margin: 10px 0 20px 0;
 }
 
 .input-container {
-    text-align: center;
+    text-align: left;       /* 왼쪽 정렬 */
     width: 100%;
     max-width: 1000px;
-    margin: 20px auto;
+    margin-left: 0;         /* 왼쪽 여백 제거 */
 }
 
 .input-container input {
@@ -143,7 +155,7 @@ body {
     color: #333; 
 }
 
-/* 팝업, 회원가입, 네비게이션 등 기존 스타일은 그대로 유지 */
+/* 팝업 로그인 창 */
 .popup {
     display: none; 
     position: fixed;
@@ -230,25 +242,4 @@ body {
 
 .signup-link:hover {
     color: #fafafa; 
-}
-
-.nav-button {
-    background-color: #212121;
-    color: white; 
-    padding: 5px 10px; 
-    border-radius: 5px; 
-    cursor: pointer;
-    text-decoration: none; 
-    display: inline-block; 
-    transition: background-color 0.3s ease, color 0.3s ease; 
-}
-
-.nav-button:hover {
-    background-color: white; 
-    color: black; 
-    border: 1px solid #cacaca; 
-}
-
-a.nav-button {
-    display: inline-block;
 }

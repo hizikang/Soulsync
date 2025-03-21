@@ -1,8 +1,10 @@
 from fastapi import FastAPI, Form, Request
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import RedirectResponse, HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from starlette.middleware.sessions import SessionMiddleware
-from utils.recommendation import analyze_text, MOOD_MAPPING, render_list_page, render_box_page
+from utils.recommendation import analyze_text, MOOD_MAPPING, render_list_page, render_box_page, MOOD_COMMENTS
+from fastapi.templating import Jinja2Templates
+import pandas as pd
 
 from utils.database import setup_database
 from utils.auth import login_user, signup_user, logout_user
@@ -14,6 +16,8 @@ from utils.pages import (
 app = FastAPI()
 app.add_middleware(SessionMiddleware, secret_key="your_secret_key")
 app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
+songs_data = pd.read_csv("data/songs.csv")
 
 setup_database()
 
@@ -87,10 +91,22 @@ async def recommend_endpoint(request: Request, user_text: str = Form(...)):
                 content={"message": f"'{sentiment}'에 해당하는 노래를 찾을 수 없습니다."},
                 status_code=400
             )
-        return render_list_page(request, mood)
+        # mood에 해당하는 노래 필터링 및 추천 리스트 생성
+        filtered_songs = songs_data[songs_data["Mood"].str.lower() == mood.lower()]
+        recommended = filtered_songs.head(12).to_dict(orient="records")
+        feedback = MOOD_COMMENTS.get(mood, "오늘의 추천입니다.")
+        
+        # recommend.html 템플릿을 렌더링해서 이동
+        return templates.TemplateResponse("recommend.html", {
+            "request": request,
+            "songs": recommended,
+            "mood": mood,
+            "feedback": feedback
+        })
     except Exception as e:
         print(f"오류 발생: {e}")
         return JSONResponse(content={"error": f"오류 발생: {str(e)}"}, status_code=500)
+
 
 @app.get("/box1", response_class=HTMLResponse)
 async def box1(request: Request):
