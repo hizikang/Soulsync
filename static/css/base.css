@@ -1,0 +1,90 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 16px;
+  }
+  
+  body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
+  
+  input, textarea {
+    font-family: inherit;
+  }
+  
+  .container,
+  .content,
+  .footer {
+    width: 80%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* box-container 위치 최적화 */
+  .box-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+  }
+  
+  /* 반응형 위치 대응 */
+  @media (max-width: 768px) {
+    html {
+      font-size: 14px;
+    }
+  
+    .box-container {
+      flex-direction: column;
+      gap: 30px;
+      margin: 30px 0;
+    }
+  
+    .container,
+    .content,
+    .footer {
+      width: 95%;
+      margin-left: 0 !important;
+    }
+  
+    .popup-content {
+      width: 90%;
+      left: 50%;
+      top: 30%;
+      transform: translate(-50%, -30%);
+    }
+  
+    .footer h1,
+    .footer p {
+      margin-left: 0;
+      text-align: left;
+    }
+  }
+  

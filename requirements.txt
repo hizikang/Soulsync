@@ -5,4 +5,6 @@ torch
 transformers
 itsdangerous
 python-multipart
-sentencepiece
+protobuf
+beautifulsoup4
+selenium

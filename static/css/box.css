@@ -89,7 +89,7 @@ body {
     align-items: flex-start;
     position: relative;
     margin-top: 60px;
-    margin-left: 500px;
+    margin-left: 180px;
     width: calc(100% - 300px);
     height: calc(100% - 60px);
     padding: 20px;
@@ -289,4 +289,12 @@ body {
     white-space: nowrap;
     margin-top: -20px;
     margin-left: 700px;
+}
+
+.playlist-mood-text {
+    font-size: 18px;
+    color: #cccccc;
+    text-align: center;
+    margin-top: 8px;
+    margin-left: -900px;
 }

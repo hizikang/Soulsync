@@ -3,3 +3,13 @@ venv/
 .DS_Store
 
 users.db
+
+.python-version
+
+models/*.pt
+
+KoBERT/*.pt
+*.bin
+*.pkl
+*.npy
+KoBERT/

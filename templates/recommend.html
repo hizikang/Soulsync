@@ -33,35 +33,24 @@
         {% if songs %}
         <div class="grid-container">
             {% for group in songs|batch(4) %}
-            <div class="grid-group {% if loop.index == 1 %}first-group{% endif %}">
-                {% for song in group %}
-                <div class="album-item">
-                    <img src="{{ song.Image_URL }}" alt="{{ song.Title }}" class="album-cover">
-                    <p class="song-title">{{ song.Title }}</p>
-                </div>
-                {% endfor %}
-                <p class="grid-group-title">MIX{{ loop.index }}</p>
-            </div>
+            <form action="/list" method="post">
+                <input type="hidden" name="mood" value="{{ mood }}">
+                <input type="hidden" name="songs_json" value='{{ group | tojson }}'>
+                <button type="submit" class="grid-group">
+                    {% for song in group %}
+                    <div class="album-item">
+                        <img src="{{ song.Image_URL }}" alt="{{ song.Title }}" class="album-cover">
+                        <p class="song-title">{{ song.Title }}</p>
+                    </div>
+                    {% endfor %}
+                    <p class="grid-group-title">MIX{{ loop.index }}</p>
+                </button>
+            </form>
             {% endfor %}
-        </div>
-        <div class="list-navigation">
-            <a href="/list?mood={{ mood }}" class="btn">추천된 노래 더 보기</a>
         </div>
         {% else %}
         <p>{{ message }}</p>
         {% endif %}
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const firstGroup = document.querySelector(".grid-group.first-group");
-            if (firstGroup) {
-                firstGroup.addEventListener("click", function() {
-                    const mood = "{{ mood }}"; 
-                    window.location.href = `/list?mood=${mood}`;
-                });
-            }
-        });
-    </script>
 </body>
 </html>
