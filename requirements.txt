@@ -8,3 +8,4 @@ python-multipart
 protobuf
 beautifulsoup4
 selenium
+kobert-tokenizer==0.5.1
