@@ -1,15 +1,31 @@
+# 가상환경
 venv/
 
+# macOS 시스템 파일
 .DS_Store
 
+# SQLite DB 파일
 users.db
 
+# Python 설정
 .python-version
 
-models/*.pt
-
-KoBERT/*.pt
+# PyTorch 모델 및 기타 학습 관련 파일
+*.pt
 *.bin
 *.pkl
 *.npy
+
+# 캐시 파일
+__pycache__/
+*.pyc
+
+# 모델 디렉토리 내부 파일 무시
+models/*.pt
+
+# KoBERT 내부까지 모두 전체 무시
 KoBERT/
+
+# 로그, 결과, 임시 파일 등 필요 시 추가
+# *.log
+# *.tmp
