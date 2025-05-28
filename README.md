@@ -39,7 +39,7 @@ SOULSYNC/
 ## 3. 기술 스택
 
 * **Backend**: FastAPI, Python
-* **AI**: Hugging Face Transformers (KoBERT), PyTorch
+* **AI**: Hugging Face Transformers (KoBERT)
 * **DB**: SQLite
 * **Frontend**: HTML, CSS, JS, Jinja2
 * **Server**: Uvicorn
@@ -80,4 +80,13 @@ $ uvicorn main:app --reload
 
 ---
 
-> SoulSync는 감정에 기반해 그대의 한 내용과 공감하는 복합 음악 찾기를 도움을 줍니다!
+## 7. 팀원 소개
+
+- 강희지: AI / Backend / Frontend
+- 송종욱: DB
+- 신효진: Frontend / Design
+- 지은혜: Frontend / Crawling
+- 권승빈: Frontend
+- 박성빈: Frontend
+
+> SoulSync는 사용자의 감정을 기반으로 한 차별화된 음악 추천 서비스를 제공합니다.
