@@ -1,17 +1,16 @@
 import torch
-from transformers import AutoModelForSequenceClassification
-from kobert_tokenizer import KoBERTTokenizer
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 class SentimentAnalyzer:
     def __init__(self):
-        # 1. tokenizer 로컬에서 KoBERT 기반으로 불러오기
-        self.tokenizer = KoBERTTokenizer.from_pretrained("skt/kobert-base-v1")
+        # 1. Hugging Face에서 tokenizer 불러오기
+        self.tokenizer = AutoTokenizer.from_pretrained("hzz15/soulsync")
 
-        # 2. Hugging Face에 업로드된 파인튜닝 모델 로드
+        # 2. 파인튜닝된 KoBERT 감정분류 모델 로드
         self.model = AutoModelForSequenceClassification.from_pretrained("hzz15/soulsync")
         self.model.eval()
 
-        # 3. 라벨 매핑 딕셔너리 저장 
+        # 3. 라벨 매핑 딕셔너리
         self.label_dict = self.model.config.id2label 
 
     def analyze_sentiment(self, text: str) -> str:
@@ -52,7 +51,5 @@ class SentimentAnalyzer:
             emotion = self.label_dict[pred]
         else:
             raise KeyError(f"[ERROR] 라벨 {pred} 이(가) id2label에서 누락됨")
-
-        print(f"[DEBUG] 예측 라벨 ID: {pred} → 감정: {emotion}")
         return emotion
 
