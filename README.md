@@ -60,6 +60,12 @@ $ source venv/bin/activate  # Windows: venv\Scripts\activate
 # 필요 패키지 설치
 $ pip install -r requirements.txt
 
+# KoBERT tokenizer 설치
+# 모델은 Hugging Face에서 불러오지만, tokenizer는 로컬에서 불러오기 때문에 아래 명령을 반드시 실행해야 합니다.
+$ transformers-cli download skt/kobert-base-v1
+# 또는 transformers 4.30 이상일 경우
+$ from transformers import BertTokenizer; BertTokenizer.from_pretrained("skt/kobert-base-v1")
+
 # 실행
 $ uvicorn main:app --reload
 ```
